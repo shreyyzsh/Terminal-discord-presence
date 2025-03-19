@@ -24,7 +24,7 @@ def getData():
     elif "iTerm2" in (i.name() for i in psutil.process_iter()):
         state = "On iTerm2"
         largeImage = "terminal"
-        largeText = "Running zsh"
+        largeText = "iTerm2-terminal"
         
     else:
         (state, largeImage, largeText) = ("On Linux Terminal", None, "Linux Terminal") # default values
