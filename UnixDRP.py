@@ -1,4 +1,3 @@
-# for Linux terminals!
 
 import os
 import time
@@ -21,6 +20,12 @@ def getData():
         state = "On KDE-Konsole"
         largeImage = "konsole"
         largeText = "KDE-Konsole"
+    
+    elif "iTerm2" in (i.name() for i in psutil.process_iter()):
+        state = "On iTerm2"
+        largeImage = "terminal"
+        largeText = "Running zsh"
+        
     else:
         (state, largeImage, largeText) = ("On Linux Terminal", None, "Linux Terminal") # default values
 
@@ -29,10 +34,10 @@ def getData():
 
     (details, smallImage, smallText) = ("Using a shell", None, None) # default values
     for shell in shells:
-        if theShell == f"/usr/bin/{shell.lower()}":
-            details = f"Using {shell} shell"
+        if theShell == f"/bin/{shell.lower()}":
+            details = f"Using {shell}"
             smallImage = shell.lower()
-            smallText = f"{shell} shell"
+            smallText = f"{shell}"
 
     return state, largeImage, largeText, details, smallImage, smallText
 
